@@ -55,6 +55,7 @@ std::ostream& operator << (std::ostream& flux, const Matrix& matrix){
      }
      flux << std::endl;
   }
+  return flux;
 }
 
 Matrix& Matrix::operator=(const Matrix* matrix){
