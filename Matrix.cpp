@@ -53,7 +53,10 @@ std::ostream& operator << (std::ostream& flux, const Matrix& matrix){
      }
      flux << std::endl;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc696471ea0ca2c9cc3abc3f45a3f356d2595479
   return flux;
 }
 
