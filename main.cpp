@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
    cout << m1t1 << endl << endl;
    cout << "two" << endl;
    cout << m2t1 << endl << endl;
-   
+
    cout << "one + two" << endl;
    cout << m1t1.addByModifyingMatrix(m2t1) << endl;
    
@@ -97,17 +97,16 @@ int main(int argc, char** argv) {
    cout << "two with a modulus of 5" << endl;
    cout << me2t2 << endl << endl;
 
-
-   cout << "Test with const matrix" << endl;
-   const Matrix m1Const(2,2,4);
-   Matrix m2Const(3,3,4);
-   m1Const.addByReturningValue(m2Const);
-
    try{
       me1t2.addByReturningValue(me2t2);
    }catch(const invalid_argument& e){
       cout << e.what() << endl;
    }
+
+    cout << "Test with const matrix" << endl;
+    const Matrix m1Const(2,2,4);
+    Matrix m2Const(3,3,4);
+    cout << m1Const.addByReturningValue(m2Const) << endl;
 
    return EXIT_SUCCESS;
 }

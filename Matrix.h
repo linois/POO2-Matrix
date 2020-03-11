@@ -157,6 +157,13 @@ public :
     Matrix* mulByReturningPointer(const Matrix& other) const{
         return new Matrix(mulByReturningValue(other));
     }
+
+    /**
+     * Applies modifications of a certain operation to a matrix
+     * @param temp Matrix to modify
+     * @return A pointer to this matrix
+     */
+    Matrix& modifyingMatrixOperations(Matrix& temp);
    
 private:
     int getValOrZero(size_t i, size_t j) const;

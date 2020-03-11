@@ -1,8 +1,8 @@
 /* ---------------------------
 Laboratoire :  Labo 01 : Matrix Reloaded
 Fichier     :  Matrix.h
-Auteur(s)   :  Edouard de Chambrier
-Date        :  06.03.2019
+Auteur(s)   :  Edouard de Chambrier, Valvona Guillaume
+Date        :  27.02.2020
 
 But         : Implémentation des méthodes définies dans le fichier Matrix.h
 
@@ -46,8 +46,6 @@ Matrix::~Matrix(){
      delete[] values;
 }
 
-
-
 std::ostream& operator << (std::ostream& flux, const Matrix& matrix){
   for(size_t i = 0; i< matrix.height; i++){
      for(size_t j=0; j< matrix.width; j++){
@@ -55,6 +53,8 @@ std::ostream& operator << (std::ostream& flux, const Matrix& matrix){
      }
      flux << std::endl;
   }
+
+  return flux;
 }
 
 Matrix& Matrix::operator=(const Matrix* matrix){
@@ -62,11 +62,7 @@ Matrix& Matrix::operator=(const Matrix* matrix){
     this->height = matrix->height;
     this->modulus = matrix->modulus;
 
-    for (int i = 0; i < this->height; i++) {
-        for (int j = 0; j < this->width; j++) {
-            this->values[i][j] = matrix->values[i][j];
-        }
-    }
+    copyTable(matrix->values);
 
     return *this;
 }
@@ -101,29 +97,26 @@ Matrix Matrix::operation(const Matrix& other, const Operator& op) const{
    return res;
 }
 
+Matrix& Matrix::modifyingMatrixOperations(Matrix& temp){
+    height = temp.height;
+    width = temp.width;
+    std::swap(values, temp.values);
+    return *this;
+}
 
 Matrix& Matrix::addByModifyingMatrix(const Matrix &other) {
-   Matrix temp(addByReturningValue(other));
-   height = temp.height;
-   width = temp.width;
-   std::swap(values, temp.values);
-   return *this;
+    Matrix temp(addByReturningValue(other));
+    return modifyingMatrixOperations(temp);
 }
 
 Matrix& Matrix::subByModifyingMatrix(const Matrix& other){
-   Matrix temp(subByReturningValue(other));
-   height = temp.height;
-   width = temp.width;
-   std::swap(values, temp.values);
-   return *this;
+    Matrix temp(subByReturningValue(other));
+    return modifyingMatrixOperations(temp);
 }
 
 Matrix& Matrix::mulByModifyingMatrix(const Matrix& other){
-   Matrix temp(mulByReturningValue(other));
-   height = temp.height;
-   width = temp.width;
-   std::swap(values, temp.values);
-   return *this;
+    Matrix temp(mulByReturningValue(other));
+    return modifyingMatrixOperations(temp);
 }
 
 // si la position [i][j] du tableau existe, elle est retournée. Sinon retourne 0

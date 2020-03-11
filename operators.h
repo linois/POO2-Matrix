@@ -1,11 +1,11 @@
 /* ---------------------------
 Laboratoire :  Labo 01 : Matrix Reloaded
 Fichier     :  operators.h
-Auteur(s)   :  Edouard de Chambrier
-Date        :  06.03.2019
+Auteur(s)   :  Edouard de Chambrier, Valvona Guillaume
+Date        :  27.02.2020
 
-Remarque(s) : Ce fichier contient lusieurs classes, vu que chacun de celle-ci est
-              d'une taille ralivement petite.
+Remarque(s) : Ce fichier contient plusieurs classes, vu que chacune de celle-ci est
+              d'une taille relativement petite.
               Au vue de la petite taille des méthodes, il n'y a pas de fichiers
               .cpp non plus
 
