@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
    cout << "The modulus is " << MODT1 << endl << endl;
    Matrix m1t1(4,3,MODT1);
    Matrix m2t1(5,3,MODT1);
-   
+
    cout << "one" << endl;
    cout << m1t1 << endl << endl;
    cout << "two" << endl;
@@ -70,13 +70,13 @@ int main(int argc, char** argv) {
    cout << m2t3 << endl << endl;
    
    cout << "one + two" << endl;
-   cout << *(m1t3.addC(m2t3)) << endl;
+   cout << *(m1t3.addByReturningPointer(m2t3)) << endl;
    
    cout << "one - two" << endl;
-   cout << *(m1t3.subC(m2t3)) << endl;
+   cout << *(m1t3.subByReturningPointer(m2t3)) << endl;
    
    cout << "one x two" << endl;
-   cout << *(m1t3.mulC(m2t3)) << endl << endl;
+   cout << *(m1t3.mulByReturningPointer(m2t3)) << endl << endl;
    
    cout << "Error testing : " << endl;
    cout << "invalid Modulo given error (with -5 as modulus) :" << endl;

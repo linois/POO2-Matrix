@@ -85,7 +85,7 @@ public :
     Matrix& addByModifyingMatrix(const Matrix& other);
 
     /**
-     * Subs 2 matrix by modifying the matrix other
+     * Substracts 2 matrix by modifying the matrix other
      * @param other the matrix we want to sub
      * @return a new matrix which is the difference of our matrix and other
      */
@@ -98,9 +98,6 @@ public :
      */
     Matrix& mulByModifyingMatrix(const Matrix& other);
 
-    // fonction add sub mul avec retour par valeur (on ne peut pas retourner par
-    // référence, car à la fin de la fonction l'objet est détruit et donc
-    // la référence pointe vers n'importe quoi)
     /**
      * Adds 2 matrix by returning a value
      * We can't return a reference because at the end of the function, object is deleted
@@ -112,26 +109,52 @@ public :
         return operation(other, op);
     }
 
+    /**
+     * Substracts 2 matrix by returning a value
+     * We can't return a reference because at the end of the function, object is deleted
+     * @param other the matrix we want to substract
+     * @return a new matrix, created in operation
+     */
     Matrix subByReturningValue(const Matrix& other) const{
         Sub op;
         return operation(other, op);
     }
 
+    /**
+     * Multiplies 2 matrix by returning a value
+     * We can't return a reference because at the end of the function, object is deleted
+     * @param other the matrix we want to multiply
+     * @return a new matrix, created in operation
+     */
     Matrix mulByReturningValue(const Matrix& other) const{
         Mul op;
         return operation(other, op);
     }
 
-    // opération avec pointeur sur nouvelle matrice
-    Matrix* addC(const Matrix& other) const{
+    /**
+     * Adds 2 matrix by returning a pointer on a result matrix
+     * @param other the matrix we want to add
+     * @return a pointer on a matrix
+     */
+    Matrix* addByReturningPointer(const Matrix& other) const{
         return new Matrix(addByReturningValue(other));
     }
 
-    Matrix* subC(const Matrix& other) const{
+    /**
+     * Substracts 2 matrix by returning a pointer on a result matrix
+     * @param other the matrix we want to substract
+     * @return a pointer on a matrix
+     */
+    Matrix* subByReturningPointer(const Matrix& other) const{
         return new Matrix(subByReturningValue(other));
     }
 
-    Matrix* mulC(const Matrix& other) const{
+    /**
+     * Multiplies 2 matrix by returning a pointer on a result matrix
+     * @param other the matrix we want to multiply
+     * @return a pointer on a matrix
+     */
+    Matrix* mulByReturningPointer(const Matrix& other) const{
         return new Matrix(mulByReturningValue(other));
     }
    

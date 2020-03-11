@@ -58,14 +58,30 @@ std::ostream& operator << (std::ostream& flux, const Matrix& matrix){
 }
 
 Matrix& Matrix::operator=(const Matrix* matrix){
-  return Matrix(*matrix);
+    this->width = matrix->width;
+    this->height = matrix->height;
+    this->modulus = matrix->modulus;
+
+    for (int i = 0; i < this->height; i++) {
+        for (int j = 0; j < this->width; j++) {
+            this->values[i][j] = matrix->values[i][j];
+        }
+    }
+
+    return *this;
 }
 
 // retourne une Matrix dont les valeur sont le sésultat de
 // l'opétation (donnée en paramètre) des valeurs du tableau
-// de la classe et de celui donnée en paramètre 
+// de la classe et de celui donnée en paramètre
+/**
+ *
+ * @param other
+ * @param op
+ * @return
+ */
 Matrix Matrix::operation(const Matrix& other, const Operator& op) const{
-   // check if both matrixes have the same modulus
+   // Checks if both matrix have the same modulus
    if(this->modulus != other.modulus){
       throw std::invalid_argument("The modulus of both matrix must be the same.");
    }
