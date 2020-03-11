@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Cours/POO2/Matrix/Matrix.cpp
+sstream
+-
+Matrix.h
+D:/Cours/POO2/Matrix/Matrix.h
+
+D:/Cours/POO2/Matrix/Matrix.h
+iostream
+-
+operators.h
+D:/Cours/POO2/Matrix/operators.h
+
+D:/Cours/POO2/Matrix/main.cpp
+cstdlib
+-
+Matrix.h
+D:/Cours/POO2/Matrix/Matrix.h
+
+D:/Cours/POO2/Matrix/operators.h
+
